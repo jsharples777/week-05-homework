@@ -1,0 +1,38 @@
+{
+  "name": "week-05-homework",
+  "version": "1.0.0",
+  "description": "Work Day Scheduler",
+  "main": "server/server.js",
+  "scripts": {
+    "compile": "babel client/src --out-dir public/js",
+    "watch": "babel client/src --out-dir public/js --watch --verbose",
+    "start": "nodemon -w server server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsharples777/week-05-homework.git"
+  },
+  "keywords": [
+    "MongoDB",
+    "Express",
+    "React",
+    "Node.js",
+    "GraphQL"
+  ],
+  "author": "Jim Sharples",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jsharples777/week-05-homework/issues"
+  },
+  "homepage": "https://github.com/jsharples777/week-05-homework#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^1.19.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.14.5",
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.5",
+    "@babel/preset-react": "^7.14.5"
+  }
+}
