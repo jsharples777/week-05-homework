@@ -2,11 +2,20 @@
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-var _react = _interopRequireDefault(require("react"));
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
 
-var _Controller = _interopRequireDefault(require("./Controller"));
+var _DataSource2 = _interopRequireDefault(require("./DataSource.js"));
 
-var _DataModel = _interopRequireDefault(require("./DataModel"));
+var _SimpleDebug = _interopRequireDefault(require("../util/SimpleDebug.js"));
+
+var data = _interopRequireWildcard(require("./questions.json"));
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30,44 +39,30 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-var ScheduleList = /*#__PURE__*/function (_React$Component) {
-  _inherits(ScheduleList, _React$Component);
+var FileDataSourceDelegate = /*#__PURE__*/function (_DataSource) {
+  _inherits(FileDataSourceDelegate, _DataSource);
 
-  var _super = _createSuper(ScheduleList);
+  var _super = _createSuper(FileDataSourceDelegate);
 
-  function ScheduleList(props) {
-    var _this;
+  function FileDataSourceDelegate() {
+    _classCallCheck(this, FileDataSourceDelegate);
 
-    _classCallCheck(this, ScheduleList);
-
-    _this = _super.call(this, props);
-    _this.state = {
-      scheduleItems: []
-    };
-    return _this;
+    return _super.apply(this, arguments);
   }
 
-  _createClass(ScheduleList, [{
-    key: "render",
-    value: function render() {
-      var scheduleItemRows = this.state.scheduleItems.map(function (scheduleItem) {
-        return /*#__PURE__*/_react.default.createElement(ScheduleItem, {
-          key: scheduleItem.id,
-          "schedule-item": scheduleItem
-        });
-      });
-      return /*#__PURE__*/_react.default.createElement("div", {
-        id: "appointment-list",
-        className: this.props.className
-      }, /*#__PURE__*/_react.default.createElement("h1", null, "Test"));
+  _createClass(FileDataSourceDelegate, [{
+    key: "loadQuestions",
+    value: function loadQuestions() {
+      _SimpleDebug.default.log("Loading Questions", 5);
+
+      _SimpleDebug.default.log(data.default);
+
+      return data.default;
     }
   }]);
 
-  return ScheduleList;
-}(_react.default.Component);
+  return FileDataSourceDelegate;
+}(_DataSource2.default);
 
-var element = /*#__PURE__*/_react.default.createElement(ScheduleList, {
-  className: "container-fluid"
-});
-
-ReactDOM.render(element, document.getElementById("content"));
+var _default = FileDataSourceDelegate;
+exports.default = _default;
