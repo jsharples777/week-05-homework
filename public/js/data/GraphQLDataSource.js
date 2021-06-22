@@ -29,8 +29,9 @@ var GraphQLDataSource = /*#__PURE__*/function (_DataSource) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
+              logger.log("Loading Schedule - QL Data Source ", 4);
               query = "query {\n         getScheduleItems {\n            _id\n            details\n            time\n          }\n        }";
-              _context.next = 3;
+              _context.next = 4;
               return fetch("/graphql", {
                 method: "POST",
                 headers: {
@@ -41,12 +42,13 @@ var GraphQLDataSource = /*#__PURE__*/function (_DataSource) {
                 })
               });
 
-            case 3:
+            case 4:
               response = _context.sent;
               result = response.json();
+              logger.log(result);
               logger.log(result.data.getScheduleItems);
 
-            case 6:
+            case 8:
             case "end":
               return _context.stop();
           }

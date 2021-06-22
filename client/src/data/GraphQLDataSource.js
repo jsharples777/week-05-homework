@@ -6,6 +6,7 @@ export default class GraphQLDataSource extends DataSource{
 
     /* return an array of question objects */
     async loadScheduleItems() {
+        logger.log("Loading Schedule - QL Data Source ",4);
         const query = `query {
          getScheduleItems {
             _id
@@ -20,7 +21,9 @@ export default class GraphQLDataSource extends DataSource{
            body: JSON.stringify({query})
         });
 
+
         const result = response.json();
+        logger.log(result);
 
         logger.log(result.data.getScheduleItems);
 

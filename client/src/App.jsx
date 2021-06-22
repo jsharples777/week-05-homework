@@ -1,11 +1,27 @@
 import Controller from "./Controller.js";
-import ScheduleItem from "./component/ScheduleItem.js"
+import logger from "./util/SimpleDebug.js";
+//import ScheduleItem from "./component/ScheduleItem.js"
 
 class ScheduleList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {scheduleItems: []}
+        this.controller = new Controller(element,window.localStorage);
 
+
+
+    }
+
+    async loadSchedule() {
+        logger.log("Loading Schedule - App",1);
+        return await this.controller.loadScheduleItems();
+
+    }
+
+    componentDidMount() {
+        let items = this.loadSchedule();
+        logger.log(items,10);
+        this.setState({scheduleItems: items});
 
     }
 
@@ -24,8 +40,7 @@ class ScheduleList extends React.Component {
 }
 
 const element = <ScheduleList className={"container-fluid"}/>
-let controller = new Controller(element,window.localStorage);
-controller.loadScheduleItems();
+
 
 
 ReactDOM.render(element,document.getElementById("content"));

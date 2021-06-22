@@ -18,7 +18,7 @@ var DataModel = /*#__PURE__*/function () {
   var _proto = DataModel.prototype;
 
   _proto.loadScheduleItems = function loadScheduleItems() {
-    logger.log("Loading schedule items", 5);
+    logger.log("Loading Schedule - DataModel", 3);
     return this.dataSourceDelegate.loadScheduleItems();
   };
 

@@ -15,7 +15,7 @@ export default class DataModel {
 
 
     loadScheduleItems() {
-        logger.log("Loading schedule items", 5);
+        logger.log("Loading Schedule - DataModel",3);
         return this.dataSourceDelegate.loadScheduleItems();
     }
 
