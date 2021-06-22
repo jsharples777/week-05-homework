@@ -7,7 +7,7 @@ type ScheduleItem {
 ##### top level declarations
 
 type Query {
-    getScheduleItems: [ScheduleItem!]
+    getScheduleItems: [ScheduleItem!]!
 }
 
 
