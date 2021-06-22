@@ -1,0 +1,22 @@
+type ScheduleItem {
+    id: Int!
+    details: String!
+    status: String!
+}
+
+##### top level declarations
+
+type Query {
+    getScheduleItems: [ScheduleItem!]
+}
+
+
+input ItemInput {
+    id: Int!
+    details: String!
+    status: String!
+}
+
+type Mutation {
+    addScheduleItem(item: ItemInput!):ScheduleItem
+}

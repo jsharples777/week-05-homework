@@ -1,4 +1,4 @@
- class SimpleDebug {
+export class SimpleDebug {
     constructor() {
         this.debugOn = true;
         this.debugDepth = 5;
@@ -27,5 +27,4 @@
 }
 
 let logger = new SimpleDebug();
-
 export default logger;

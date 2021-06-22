@@ -1,7 +1,5 @@
-import React from 'react';
-import Controller from "./Controller";
-import DataModel from "./DataModel";
-
+import Controller from "./Controller.js";
+import ScheduleItem from "./component/ScheduleItem.js"
 
 class ScheduleList extends React.Component {
     constructor(props) {

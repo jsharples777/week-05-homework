@@ -1,33 +1,25 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
 /* data source interface to be implemented */
 var DataSource = /*#__PURE__*/function () {
-  function DataSource() {
-    _classCallCheck(this, DataSource);
-  }
+  function DataSource() {}
 
-  _createClass(DataSource, [{
-    key: "loadQuestions",
-    value:
-    /* return an array of question objects */
-    function loadQuestions() {
-      throw new ErrorEvent("DataSource is an interface class only - subclass and implement loadQuestions");
-    }
-  }]);
+  var _proto = DataSource.prototype;
+
+  /* return an array of question objects */
+  _proto.loadScheduleItems = function loadScheduleItems() {
+    throw new ErrorEvent("DataSource is an interface class only - subclass and implement loadScheduleItems");
+  }
+  /* return an array of question objects */
+  ;
+
+  _proto.addScheduleItem = function addScheduleItem(scheduleItem) {
+    throw new ErrorEvent("DataSource is an interface class only - subclass and implement addScheduleItem");
+  };
+
+  _proto.saveScheduleItems = function saveScheduleItems(scheduleItems) {
+    throw new ErrorEvent("DataSource is an interface class only - subclass and implement saveScheduleItems");
+  };
 
   return DataSource;
 }();
 
-var _default = DataSource;
-exports.default = _default;
+export { DataSource as default };

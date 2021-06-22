@@ -1,6 +1,4 @@
-import React from 'react';
-
-function ScheduleItem (props) {
+export default function ScheduleItem (props) {
     let scheduleItem = props.schedule-item;
     return (
       <span>{scheduleItem.details}</span>
