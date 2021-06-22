@@ -7,16 +7,10 @@ var DataSource = /*#__PURE__*/function () {
   /* return an array of question objects */
   _proto.loadScheduleItems = function loadScheduleItems() {
     throw new ErrorEvent("DataSource is an interface class only - subclass and implement loadScheduleItems");
-  }
-  /* return an array of question objects */
-  ;
-
-  _proto.addScheduleItem = function addScheduleItem(scheduleItem) {
-    throw new ErrorEvent("DataSource is an interface class only - subclass and implement addScheduleItem");
   };
 
-  _proto.saveScheduleItems = function saveScheduleItems(scheduleItems) {
-    throw new ErrorEvent("DataSource is an interface class only - subclass and implement saveScheduleItems");
+  _proto.saveScheduleItem = function saveScheduleItem(scheduleItem) {
+    throw new ErrorEvent("DataSource is an interface class only - subclass and implement saveScheduleItem");
   };
 
   return DataSource;

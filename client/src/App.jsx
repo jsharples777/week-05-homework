@@ -5,12 +5,15 @@ class ScheduleList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {scheduleItems: []}
+
+
     }
 
     render() {
-        const scheduleItemRows = this.state.scheduleItems.map(scheduleItem =>
-            <ScheduleItem key={scheduleItem.id} schedule-item={scheduleItem}/>
-        )
+
+        // const scheduleItemRows = this.state.scheduleItems.map(scheduleItem =>
+        //     <ScheduleItem key={scheduleItem.id} schedule-item={scheduleItem}/>
+        // )
 
         return (
             <div id={"appointment-list"} className={this.props.className}>
@@ -21,6 +24,8 @@ class ScheduleList extends React.Component {
 }
 
 const element = <ScheduleList className={"container-fluid"}/>
+let controller = new Controller(element,window.localStorage);
+controller.loadScheduleItems();
 
 
 ReactDOM.render(element,document.getElementById("content"));

@@ -21,12 +21,9 @@ var ScheduleList = /*#__PURE__*/function (_React$Component) {
   var _proto = ScheduleList.prototype;
 
   _proto.render = function render() {
-    var scheduleItemRows = this.state.scheduleItems.map(function (scheduleItem) {
-      return /*#__PURE__*/React.createElement(ScheduleItem, {
-        key: scheduleItem.id,
-        "schedule-item": scheduleItem
-      });
-    });
+    // const scheduleItemRows = this.state.scheduleItems.map(scheduleItem =>
+    //     <ScheduleItem key={scheduleItem.id} schedule-item={scheduleItem}/>
+    // )
     return /*#__PURE__*/React.createElement("div", {
       id: "appointment-list",
       className: this.props.className
@@ -39,4 +36,6 @@ var ScheduleList = /*#__PURE__*/function (_React$Component) {
 var element = /*#__PURE__*/React.createElement(ScheduleList, {
   className: "container-fluid"
 });
+var controller = new Controller(element, window.localStorage);
+controller.loadScheduleItems();
 ReactDOM.render(element, document.getElementById("content"));

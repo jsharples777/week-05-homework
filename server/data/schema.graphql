@@ -1,7 +1,7 @@
 type ScheduleItem {
-    id: Int!
+    _id: Int!
+    time:Int!
     details: String!
-    status: String!
 }
 
 ##### top level declarations
@@ -12,11 +12,11 @@ type Query {
 
 
 input ItemInput {
-    id: Int!
+    _id: Int
+    time: Int!
     details: String!
-    status: String!
 }
 
 type Mutation {
-    addScheduleItem(item: ItemInput!):ScheduleItem
+    saveScheduleItem(item: ItemInput!):ScheduleItem
 }
