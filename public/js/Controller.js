@@ -16,9 +16,13 @@ var Controller = /*#__PURE__*/function () {
   var _proto = Controller.prototype;
 
   _proto.loadScheduleItems = function loadScheduleItems() {
-    if (this.scheduleItems !== null) {
+    logger.log("Loading Schedule - Controller", 2);
+
+    if (this.scheduleItems === null) {
       this.scheduleItems = this.dataModel.loadScheduleItems();
     }
+
+    return this.scheduleItems;
   };
 
   _proto.saveScheduleItems = function saveScheduleItems() {

@@ -1,4 +1,5 @@
 import logger from './util/SimpleDebug.js';
+import GraphQLDataSource from "./data/GraphQLDataSource.js";
  
 export default class DataModel {
     clientSideStorage = null;
@@ -6,6 +7,7 @@ export default class DataModel {
 
 
     constructor(clientSideStorage = {}) {
+        this.dataSourceDelegate = new GraphQLDataSource();
         //this.dataSourceDelegate = new ObjectDataSourceDelegate();
         //this.dataSourceDelegate = new FileDataSourceDelegate();
         this.initialise(clientSideStorage);
@@ -13,18 +15,13 @@ export default class DataModel {
 
 
     loadScheduleItems() {
+        logger.log("Loading Schedule - DataModel",3);
         return this.dataSourceDelegate.loadScheduleItems();
     }
 
-    saveScheduleItems(scheduleItems) {
-        this.dataSourceDelegate.saveScheduleItems(scheduleItems);
-    }
-
-
-
-    addScheduleItem(scheduleItem) {
-        logger.log("Adding new schedule item", 5);
-        this.dataSourceDelegate.addScheduleItem(scheduleItem);
+    saveScheduleItem(scheduleItem) {
+        logger.log("save schedule item", 5);
+        this.dataSourceDelegate.saveScheduleItem(scheduleItem);
     }
 
 

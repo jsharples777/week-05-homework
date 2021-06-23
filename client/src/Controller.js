@@ -19,9 +19,11 @@ export default class Controller {
     }
 
     loadScheduleItems() {
-        if (this.scheduleItems !== null) {
+        logger.log("Loading Schedule - Controller",2);
+        if (this.scheduleItems === null) {
             this.scheduleItems = this.dataModel.loadScheduleItems();
         }
+        return this.scheduleItems;
     }
 
     saveScheduleItems() {
