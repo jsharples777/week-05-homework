@@ -36,12 +36,16 @@ class ServerDataModel {
     _saveScheduleItemQL(_, {item}) {
         logger.log("Saving item via QL",5);
         logger.log(item);
-        return delegate.saveScheduleItem(item);
+        let result = delegate.saveScheduleItem(item);
+        logger.log(result);
+        return result;
     }
 
     _getScheduleItemsQL() {
         logger.log("Getting schedule items QL",5);
-        return delegate.loadScheduleItems();
+        let result = delegate.loadScheduleItems();
+        logger.log(result,90);
+        return result;
     }
 
 }

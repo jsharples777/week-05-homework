@@ -15,17 +15,19 @@ export default class GraphQLDataSource extends DataSource{
           }
         }`;
 
-        const response = await fetch("/graphql", {
-           method: "POST",
-           headers: {'Content-Type':'application/json'},
-           body: JSON.stringify({query})
-        });
+       const response = await fetch("/graphql", {
+                method: "POST",
+                headers: {'Content-Type':'application/json'},
+                body: JSON.stringify({query})
+            });
 
 
-        const result = response.json();
+
+        const result = await response.json();
         logger.log(result);
 
         logger.log(result.data.getScheduleItems);
+        return result.data.getScheduleItems;
 
     }
 

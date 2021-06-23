@@ -44,11 +44,16 @@ var GraphQLDataSource = /*#__PURE__*/function (_DataSource) {
 
             case 4:
               response = _context.sent;
-              result = response.json();
+              _context.next = 7;
+              return response.json();
+
+            case 7:
+              result = _context.sent;
               logger.log(result);
               logger.log(result.data.getScheduleItems);
+              return _context.abrupt("return", result.data.getScheduleItems);
 
-            case 8:
+            case 11:
             case "end":
               return _context.stop();
           }
