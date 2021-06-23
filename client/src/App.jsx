@@ -1,39 +1,39 @@
-import Controller from "./Controller.js";
 import logger from "./util/SimpleDebug.js";
-//import ScheduleItem from "./component/ScheduleItem.js"
+import Controller from "./Controller.js";
+import ScheduleItem from "./component/ScheduleItem.js";
+
+
+
 
 class ScheduleList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {scheduleItems: []}
-        this.controller = new Controller(element,window.localStorage);
-
-
-
+        this.controller = new Controller(this,window.localStorage);
     }
 
-    async loadSchedule() {
-        logger.log("Loading Schedule - App",1);
-        return await this.controller.loadScheduleItems();
-
+    setState(stateObj) {
+        logger.log("Setting State of Application");
+        logger.log(stateObj,1);
+        super.setState(stateObj);
     }
+
 
     componentDidMount() {
-        let items = this.loadSchedule();
-        logger.log(items,10);
-        this.setState({scheduleItems: items});
-
+        this.controller.loadSchedule();
     }
 
     render() {
 
-        // const scheduleItemRows = this.state.scheduleItems.map(scheduleItem =>
-        //     <ScheduleItem key={scheduleItem.id} schedule-item={scheduleItem}/>
-        // )
+        const scheduleItemRows = this.state.scheduleItems.map(scheduleItem =>
+            <ScheduleItem key={scheduleItem.time} scheduleItem={scheduleItem}/>
+        )
 
         return (
-            <div id={"appointment-list"} className={this.props.className}>
-              <h1>Test</h1>
+            <div id={"appointment-list"} className="card">
+                <ul>
+                {scheduleItemRows}
+                </ul>
             </div>
         );
     }

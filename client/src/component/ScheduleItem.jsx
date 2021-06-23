@@ -1,6 +1,6 @@
 export default function ScheduleItem (props) {
-    let scheduleItem = props.schedule-item;
+    let scheduleItem = props.scheduleItem;
     return (
-      <span>{scheduleItem.details}</span>
+      <li>{scheduleItem.details}</li>
     );
 }

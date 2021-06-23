@@ -1,12 +1,7 @@
 const {MongoClient} = require('mongodb');
-const {ServerDataSource} = require("./ServerDataSource");
 const {logger} = require("../util/SimpleDebug");
 
-class MongoDataSource extends ServerDataSource {
-
-    constructor(props) {
-        super(props);
-    }
+class MongoDataSource {
 
     async initialise() {
         let url = "mongodb+srv://week05:week05@cluster0.xase1.mongodb.net/scheduleitems?retryWrites=true&w=majority";
