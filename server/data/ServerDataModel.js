@@ -1,4 +1,4 @@
-const {logger} = require('../util/SimpleDebug.js');
+const {Logger} = require('../util/Logger.js');
 const {MongoDataSource} = require("./MongoDataSource.js");
 const fs = require('fs');
 const {ApolloServer} = require('apollo-server-express');
@@ -33,17 +33,17 @@ class ServerDataModel {
 
 
     _saveScheduleItemQL(_, {item}) {
-        logger.log("Saving item via QL", 5);
-        logger.log(item);
+        Logger.log("Saving item via QL", 5);
+        Logger.log(item);
         let result = delegate.saveScheduleItem(item);
-        logger.log(result);
+        Logger.log(result);
         return result;
     }
 
     _getScheduleItemsQL() {
-        logger.log("Getting schedule items QL", 5);
+        Logger.log("Getting schedule items QL", 5);
         let result = delegate.loadScheduleItems();
-        logger.log(result, 90);
+        Logger.log(result, 90);
         return result;
     }
 
