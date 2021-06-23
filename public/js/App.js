@@ -44,7 +44,7 @@ var ScheduleList = /*#__PURE__*/function (_React$Component) {
     });
     return /*#__PURE__*/React.createElement("div", {
       id: "appointment-list",
-      className: "card"
+      className: this.props.className
     }, /*#__PURE__*/React.createElement("ul", null, scheduleItemRows));
   };
 
@@ -54,4 +54,7 @@ var ScheduleList = /*#__PURE__*/function (_React$Component) {
 var element = /*#__PURE__*/React.createElement(ScheduleList, {
   className: "container-fluid"
 });
-ReactDOM.render(element, document.getElementById("content"));
+ReactDOM.render(element, document.getElementById("content")); // setup the diplay for todays date
+
+var today = moment().format("DD/MM/YYYY");
+$("#currentDay").text(today);

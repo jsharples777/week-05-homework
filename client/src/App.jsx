@@ -30,7 +30,7 @@ class ScheduleList extends React.Component {
         )
 
         return (
-            <div id={"appointment-list"} className="card">
+            <div id={"appointment-list"} className={this.props.className}>
                 <ul>
                 {scheduleItemRows}
                 </ul>
@@ -40,7 +40,7 @@ class ScheduleList extends React.Component {
 }
 
 const element = <ScheduleList className={"container-fluid"}/>
-
-
-
 ReactDOM.render(element,document.getElementById("content"));
+// setup the diplay for todays date
+let today = moment().format("DD/MM/YYYY");
+$("#currentDay").text(today);
