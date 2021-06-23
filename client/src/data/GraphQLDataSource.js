@@ -14,13 +14,19 @@ export default class GraphQLDataSource extends DataSource {
             time
           }
         }`;
+
+        const postParameters = {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({query})
+        }
+
         let result;
-        fetch("/graphql", {method: "POST", headers: {'Content-Type': 'application/json'}, body: JSON.stringify({query})})
+        fetch("/graphql", postParameters)
             .then(response => response.json())
             .then(function(data) {
                 result = data.data.getScheduleItems;
                 logger.log(result);
-
             });
 
         return result;
