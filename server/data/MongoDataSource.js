@@ -31,7 +31,7 @@ class MongoDataSource extends ServerDataSource {
     async loadScheduleItems() {
         logger.log("Getting schedule items from Mongo",6);
 
-        let items = await this.db.collection('scheduleitems').find().toArray();
+        let items = await this.db.collection('scheduleitems').find().sort({time:1}).toArray();
 
         logger.log(items);
         return items;

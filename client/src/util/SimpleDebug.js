@@ -1,7 +1,7 @@
 export class SimpleDebug {
     constructor() {
         this.debugOn = true;
-        this.debugDepth = 5;
+        this.debugDepth = 100;
     }
 
     log(message, debugDepth = 5) {

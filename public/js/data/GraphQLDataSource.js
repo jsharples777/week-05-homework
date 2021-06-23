@@ -24,15 +24,14 @@ var GraphQLDataSource = /*#__PURE__*/function (_DataSource) {
   /*#__PURE__*/
   function () {
     var _loadScheduleItems = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-      var query, response, result;
+      var query, result;
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               logger.log("Loading Schedule - QL Data Source ", 4);
               query = "query {\n         getScheduleItems {\n            _id\n            details\n            time\n          }\n        }";
-              _context.next = 4;
-              return fetch("/graphql", {
+              fetch("/graphql", {
                 method: "POST",
                 headers: {
                   'Content-Type': 'application/json'
@@ -40,20 +39,15 @@ var GraphQLDataSource = /*#__PURE__*/function (_DataSource) {
                 body: JSON.stringify({
                   query: query
                 })
+              }).then(function (response) {
+                return response.json();
+              }).then(function (data) {
+                result = data.data.getScheduleItems;
+                logger.log(result);
               });
+              return _context.abrupt("return", result);
 
             case 4:
-              response = _context.sent;
-              _context.next = 7;
-              return response.json();
-
-            case 7:
-              result = _context.sent;
-              logger.log(result);
-              logger.log(result.data.getScheduleItems);
-              return _context.abrupt("return", result.data.getScheduleItems);
-
-            case 11:
             case "end":
               return _context.stop();
           }

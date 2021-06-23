@@ -1,7 +1,7 @@
 export var SimpleDebug = /*#__PURE__*/function () {
   function SimpleDebug() {
     this.debugOn = true;
-    this.debugDepth = 5;
+    this.debugDepth = 100;
   }
 
   var _proto = SimpleDebug.prototype;
