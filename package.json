@@ -6,7 +6,7 @@
   "scripts": {
     "compile": "babel client/src --out-dir public/js",
     "watch": "babel client/src --out-dir public/js --watch --verbose",
-    "start": "nodemon -w server -e js,graphql server/server.js"
+    "start": "nodemon -e js,graphql,env -w server -w .env  -w . server/server.js"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,8 @@
     "Express",
     "React",
     "Node.js",
-    "GraphQL"
+    "GraphQL",
+    "Bootstrap 4"
   ],
   "author": "Jim Sharples",
   "license": "ISC",
@@ -27,6 +28,7 @@
   "homepage": "https://github.com/jsharples777/week-05-homework#readme",
   "dependencies": {
     "apollo-server-express": "^2.25.1",
+    "dotenv": "^6.2.0",
     "express": "^4.17.1",
     "graphql": "^0.13.2",
     "mongodb": "^3.6.9",

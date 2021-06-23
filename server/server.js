@@ -2,10 +2,7 @@
 const {ServerDataModel} = require ("./data/ServerDataModel");
 const express = require('express');
 const {Logger} = require("./util/Logger");
-
-
-
-
+require('dotenv').config();
 
 
 const app = express();
@@ -16,6 +13,8 @@ app.use(express.static("public"));
 
 const dataModel = new ServerDataModel(app);
 
-app.listen(3000,()=> {
-   Logger.log("Server started on port 3000",1);
+const port = process.env.SERVER_PORT;
+
+app.listen(port,()=> {
+   Logger.log(`Server started on port ${port}`,1);
 });
