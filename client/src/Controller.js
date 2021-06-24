@@ -60,6 +60,7 @@ export default class Controller {
         // find the item matching the edited time
         let foundItem = items.find(obj => obj.time === time);
         logger.log("Saving time " + foundItem.time + " details to db");
+        this.saveScheduleItem(foundItem);
     }
 
     setItemId(item,returnObj) {
@@ -68,7 +69,12 @@ export default class Controller {
 
     setState(stateObj) {
         logger.log("Setting State of Controller");
-        let results = stateObj.scheduleItems;
+        let results = [];
+        try {
+            results = stateObj.scheduleItems;
+        }
+        catch (error){}
+
         logger.log(results, 90);
 
         logger.log("Looking for gaps in the saved schedule items", 10);
@@ -114,7 +120,7 @@ export default class Controller {
         logger.log("Saving item - " + item,2);
         // construction the mutation call to GraphQL
         let mutation = saveScheduleItemMutationPRE;
-        if (item._id === null) {
+        if (item._id !== undefined) {
             mutation += "_id:" + item._id + "\n";
         }
         mutation += 'details:"' + item.details + '"\n';

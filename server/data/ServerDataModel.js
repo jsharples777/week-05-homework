@@ -20,7 +20,7 @@ class ServerDataModel {
         };
 
         this.apolloServer = new ApolloServer({
-            typeDefs: fs.readFileSync("./server/data/schema.graphql", "utf-8"),
+            typeDefs: fs.readFileSync(process.env.DB_SCHEMA, "utf-8"),
             resolvers
         });
 

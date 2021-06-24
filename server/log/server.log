@@ -1,6 +1,4 @@
-Thu Jun 24 2021 14:00:51 GMT+1000 (Australian Eastern Standard Time):Server started on port 3000
-Thu Jun 24 2021 14:00:51 GMT+1000 (Australian Eastern Standard Time):Mongo DB connected
-Thu Jun 24 2021 14:01:16 GMT+1000 (Australian Eastern Standard Time):Getting schedule items QL
-Thu Jun 24 2021 14:01:16 GMT+1000 (Australian Eastern Standard Time):Getting schedule items from Mongo
-Thu Jun 24 2021 14:01:16 GMT+1000 (Australian Eastern Standard Time):[object Promise]
-Thu Jun 24 2021 14:01:16 GMT+1000 (Australian Eastern Standard Time):[object Object],[object Object],[object Object],[object Object],[object Object]
+Thu Jun 24 2021 18:32:44 GMT+1000 (Australian Eastern Standard Time):Server started on port 3000
+Thu Jun 24 2021 18:32:45 GMT+1000 (Australian Eastern Standard Time):Mongo DB connected
+Thu Jun 24 2021 18:33:01 GMT+1000 (Australian Eastern Standard Time):Saving item via QL
+Thu Jun 24 2021 18:33:18 GMT+1000 (Australian Eastern Standard Time):Saving item via QL

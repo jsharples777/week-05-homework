@@ -52,6 +52,7 @@ var Controller = /*#__PURE__*/function () {
       return obj.time === time;
     });
     logger.log("Saving time " + foundItem.time + " details to db");
+    this.saveScheduleItem(foundItem);
   };
 
   _proto.setItemId = function setItemId(item, returnObj) {
@@ -60,7 +61,12 @@ var Controller = /*#__PURE__*/function () {
 
   _proto.setState = function setState(stateObj) {
     logger.log("Setting State of Controller");
-    var results = stateObj.scheduleItems;
+    var results = [];
+
+    try {
+      results = stateObj.scheduleItems;
+    } catch (error) {}
+
     logger.log(results, 90);
     logger.log("Looking for gaps in the saved schedule items", 10);
 
@@ -175,7 +181,7 @@ var Controller = /*#__PURE__*/function () {
 
               mutation = saveScheduleItemMutationPRE;
 
-              if (item._id === null) {
+              if (item._id !== undefined) {
                 mutation += "_id:" + item._id + "\n";
               }
 

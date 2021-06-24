@@ -34,23 +34,23 @@ class MongoDataSource {
     /* return an array of question objects */
     async saveScheduleItem(scheduleItem) {
         Logger.log("Saving schedule item to Mongo with id " + scheduleItem._id,6);
-        let insertedItem;
         /* does the item have an _id? */
         if (!scheduleItem._id) {
             // this is a new item, generate the next id
             scheduleItem._id = await this.getNextId(process.env.DB_SCHEDULE_ITEMS);
-            let result  = await this.db.collection(process.env.DB_SCHEDULE_ITEMS).insertOne(scheduleItem);
-            insertedItem = await this.db.collection(process.env.DB_SCHEDULE_ITEMS).findOne({_id: result.insertedId});
+            await this.db.collection(process.env.DB_SCHEDULE_ITEMS).insertOne(scheduleItem);
         }
         else {
             let result = await this.db.collection(process.env.DB_SCHEDULE_ITEMS).findOneAndUpdate(
                 { _id: scheduleItem._id},
-                { $set: scheduleItem}
+                { $set: {
+                    details:scheduleItem.details,
+                    time:scheduleItem.time
+                    }
+                }
             )
-            insertedItem = await this.db.collection(process.env.DB_SCHEDULE_ITEMS).findOne({_id: result.insertedId});
         }
-        Logger.log(insertedItem);
-        return insertedItem;
+        return scheduleItem;
     }
 
 }
