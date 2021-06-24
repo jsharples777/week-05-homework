@@ -36,16 +36,23 @@ var ScheduleList = /*#__PURE__*/function (_React$Component) {
   };
 
   _proto.render = function render() {
+    var handler = function handler(event) {
+      var value = $(event.target).val();
+      logger.log("Handling event " + event.type + " from " + event.target + " with value " + value, 100);
+    };
+
     var scheduleItemRows = this.state.scheduleItems.map(function (scheduleItem) {
       return /*#__PURE__*/React.createElement(ScheduleItem, {
         key: scheduleItem.time,
-        scheduleItem: scheduleItem
+        scheduleItem: scheduleItem,
+        changeHandler: handler,
+        saveHandler: handler
       });
     });
     return /*#__PURE__*/React.createElement("div", {
       id: "appointment-list",
       className: this.props.className
-    }, /*#__PURE__*/React.createElement("ul", null, scheduleItemRows));
+    }, scheduleItemRows);
   };
 
   return ScheduleList;
@@ -53,8 +60,8 @@ var ScheduleList = /*#__PURE__*/function (_React$Component) {
 
 var element = /*#__PURE__*/React.createElement(ScheduleList, {
   className: "container-fluid"
-});
-ReactDOM.render(element, document.getElementById("content")); // setup the diplay for todays date
+}); // setup the diplay for todays date
 
 var today = moment().format("DD/MM/YYYY");
 $("#currentDay").text(today);
+ReactDOM.render(element, document.getElementById("content"));
