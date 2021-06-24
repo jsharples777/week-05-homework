@@ -13,7 +13,7 @@ app.use(express.static("public"));
 
 const dataModel = new ServerDataModel(app);
 
-const port = process.env.SERVER_PORT;
+const port = process.env.PORT;
 
 app.listen(port,()=> {
    Logger.log(`Server started on port ${port}`,1);
