@@ -18,7 +18,7 @@ class Logger {
         if (debugDepth > this.debugDepth) return;
         if (this.debugOn) {
             console.log(message);
-            //Logger.getLogFile().write(new Date() + ":" + message + '\n');
+            Logger.getLogFile().write(new Date().toString() + ":" + message + '\n');
         }
     }
 

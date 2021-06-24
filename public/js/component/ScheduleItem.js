@@ -15,7 +15,7 @@ export default function ScheduleItem(props) {
   /* change the background style if we are in the past, present or future */
 
 
-  var textDisplayClasses = "col-lg-8 col-md-8 col-sm-12 text-left align-middle text-dark pt-1 ";
+  var textDisplayClasses = "col-lg-8 col-md-8 col-sm-8 border-top border-dark text-left align-middle text-dark pt-1 mt-1";
   var backgroundDisplayClass = "bg-warning"; // set the background for "time is now"
 
   if (item.time < currentHour) {
@@ -30,7 +30,7 @@ export default function ScheduleItem(props) {
     time: item.time,
     _id: item._id
   }, /*#__PURE__*/React.createElement("div", {
-    className: "col-lg-2 col-md-2 col-sm-12 text-right text-top align-middle pt-2 border-top border-dark"
+    className: "col-lg-2 col-md-2 col-sm-2 text-right text-top align-middle pt-2 border-top border-dark"
   }, /*#__PURE__*/React.createElement("span", null, display)), /*#__PURE__*/React.createElement("div", {
     className: textDisplayClasses
   }, /*#__PURE__*/React.createElement("form", null, /*#__PURE__*/React.createElement("div", {
@@ -41,13 +41,13 @@ export default function ScheduleItem(props) {
     defaultValue: item.details,
     onChange: changeHandler
   })))), /*#__PURE__*/React.createElement("div", {
-    className: "col-lg-2 col-md-2 col-sm-12 align-middle p-3"
+    className: "col-lg-2 col-md-2 col-sm-2 align-middle p-3"
   }, /*#__PURE__*/React.createElement("button", {
     time: item.time,
     className: "btn btn-primary",
     onClick: saveHandler
   }, /*#__PURE__*/React.createElement("i", {
     time: item.time,
-    className: "fa fa-save align-middle text-center"
+    className: "fa fa-save align-middle my-auto"
   }))));
 }
