@@ -35,7 +35,11 @@ export default function ScheduleItem (props) {
               <span>{display}</span>
             </div>
             <div className={textDisplayClasses}>
-                <textarea rows="3" className={"form-control " + backgroundDisplayClass + " text-dark"} value={item.details} onChange={changeHandler}></textarea>
+                <form>
+                    <div className="form-group">
+                        <textarea time={item.time} className={"form-control " + backgroundDisplayClass + " text-dark"} defaultValue={item.details} onChange={changeHandler}></textarea>
+                    </div>
+                </form>
             </div>
             <div className="col-lg-2 col-md-2 col-sm-12 align-middle p-3">
                 <button className={"btn btn-primary"} onClick={saveHandler}>

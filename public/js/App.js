@@ -36,17 +36,14 @@ var ScheduleList = /*#__PURE__*/function (_React$Component) {
   };
 
   _proto.render = function render() {
-    var handler = function handler(event) {
-      var value = $(event.target).val();
-      logger.log("Handling event " + event.type + " from " + event.target + " with value " + value, 100);
-    };
+    var _this2 = this;
 
     var scheduleItemRows = this.state.scheduleItems.map(function (scheduleItem) {
       return /*#__PURE__*/React.createElement(ScheduleItem, {
         key: scheduleItem.time,
         scheduleItem: scheduleItem,
-        changeHandler: handler,
-        saveHandler: handler
+        changeHandler: _this2.controller.handleDetailsEdit,
+        saveHandler: _this2.controller.handleItemSave
       });
     });
     return /*#__PURE__*/React.createElement("div", {

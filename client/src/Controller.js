@@ -29,6 +29,30 @@ export default class Controller {
     constructor(applicationView, clientSideStorage) {
         this.applicationView = applicationView;
         this.clientSideStorage = clientSideStorage;
+
+        this.handleDetailsEdit = this.handleDetailsEdit.bind(this);
+        this.handleItemSave = this.handleItemSave.bind(this);
+
+
+    }
+
+    handleDetailsEdit(event) {
+        event.preventDefault();
+        let target = $(event.target);
+        let value = target.val();
+        let time = parseInt(target.attr("time"));
+        logger.log("Handling event " + event.type + " from " + event.target + " with time " + time + " with value " + value,100);
+        // get the current schedule
+        let items = this.applicationView.state.scheduleItems;
+        // find the item matching the edited time
+        let foundItem = items.find(obj => obj.time === time);
+        foundItem.details = value; // update the details for the item
+        logger.log("Changed time " + foundItem.time + " details to " + value);
+    }
+
+    handleItemSave(event) {
+        let value = $(event.target).val();
+        logger.log("Handling event " + event.type + " from " + event.target + " with value " + value,100);
     }
 
     setItemId(item,returnObj) {
@@ -45,9 +69,9 @@ export default class Controller {
 
             // find the schedule item for the timeslot (if any
             let foundIndex = results.findIndex(obj => obj.time === index);
-            logger.log("Looking for time index " + index + " and found in array at " + foundIndex);
+            logger.log("Looking for time index " + index + " and found in array at " + foundIndex,10);
             if (foundIndex < 0) {
-                logger.log("Creating missing timeslot " + index);
+                logger.log("Creating missing timeslot " + index,10);
                 let item = {details: "", time: index}  // we don't need a database id for new items, it will be created when the object is saved
                 results.push(item);
             }
@@ -58,6 +82,7 @@ export default class Controller {
         logger.log(results, 90);
 
         this.applicationView.setState({scheduleItems: results});
+
 
     }
 

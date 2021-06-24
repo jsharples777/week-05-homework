@@ -25,15 +25,9 @@ class ScheduleList extends React.Component {
 
     render() {
 
-        const handler = function(event) {
-            let value = $(event.target).val();
-            logger.log("Handling event " + event.type + " from " + event.target + " with value " + value,100);
-        }
-
-
 
         const scheduleItemRows = this.state.scheduleItems.map(scheduleItem =>
-            <ScheduleItem key={scheduleItem.time} scheduleItem={scheduleItem} changeHandler={handler} saveHandler={handler}/>
+            <ScheduleItem key={scheduleItem.time} scheduleItem={scheduleItem} changeHandler={this.controller.handleDetailsEdit} saveHandler={this.controller.handleItemSave}/>
         )
 
         return (

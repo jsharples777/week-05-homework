@@ -17,9 +17,33 @@ var Controller = /*#__PURE__*/function () {
   function Controller(applicationView, clientSideStorage) {
     this.applicationView = applicationView;
     this.clientSideStorage = clientSideStorage;
+    this.handleDetailsEdit = this.handleDetailsEdit.bind(this);
+    this.handleItemSave = this.handleItemSave.bind(this);
   }
 
   var _proto = Controller.prototype;
+
+  _proto.handleDetailsEdit = function handleDetailsEdit(event) {
+    event.preventDefault();
+    var target = $(event.target);
+    var value = target.val();
+    var time = parseInt(target.attr("time"));
+    logger.log("Handling event " + event.type + " from " + event.target + " with time " + time + " with value " + value, 100); // get the current schedule
+
+    var items = this.applicationView.state.scheduleItems; // find the item matching the edited time
+
+    var foundItem = items.find(function (obj) {
+      return obj.time === time;
+    });
+    foundItem.details = value; // update the details for the item
+
+    logger.log("Changed time " + foundItem.time + " details to " + value);
+  };
+
+  _proto.handleItemSave = function handleItemSave(event) {
+    var value = $(event.target).val();
+    logger.log("Handling event " + event.type + " from " + event.target + " with value " + value, 100);
+  };
 
   _proto.setItemId = function setItemId(item, returnObj) {
     item._id = returnObj._id;
@@ -36,10 +60,10 @@ var Controller = /*#__PURE__*/function () {
       var foundIndex = results.findIndex(function (obj) {
         return obj.time === index;
       });
-      logger.log("Looking for time index " + index + " and found in array at " + foundIndex);
+      logger.log("Looking for time index " + index + " and found in array at " + foundIndex, 10);
 
       if (foundIndex < 0) {
-        logger.log("Creating missing timeslot " + index);
+        logger.log("Creating missing timeslot " + index, 10);
         var item = {
           details: "",
           time: index

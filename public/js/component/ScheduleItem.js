@@ -33,12 +33,14 @@ export default function ScheduleItem(props) {
     className: "col-lg-2 col-md-2 col-sm-12 text-right text-top align-middle pt-2 border-top border-dark"
   }, /*#__PURE__*/React.createElement("span", null, display)), /*#__PURE__*/React.createElement("div", {
     className: textDisplayClasses
+  }, /*#__PURE__*/React.createElement("form", null, /*#__PURE__*/React.createElement("div", {
+    className: "form-group"
   }, /*#__PURE__*/React.createElement("textarea", {
-    rows: "3",
+    time: item.time,
     className: "form-control " + backgroundDisplayClass + " text-dark",
-    value: item.details,
+    defaultValue: item.details,
     onChange: changeHandler
-  })), /*#__PURE__*/React.createElement("div", {
+  })))), /*#__PURE__*/React.createElement("div", {
     className: "col-lg-2 col-md-2 col-sm-12 align-middle p-3"
   }, /*#__PURE__*/React.createElement("button", {
     className: "btn btn-primary",
