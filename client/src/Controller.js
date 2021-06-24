@@ -51,8 +51,15 @@ export default class Controller {
     }
 
     handleItemSave(event) {
-        let value = $(event.target).val();
-        logger.log("Handling event " + event.type + " from " + event.target + " with value " + value,100);
+        event.preventDefault();
+        let target = $(event.target);
+        let time = parseInt(target.attr("time"));
+        logger.log("Handling event " + event.type + " from " + event.target + " with time " + time,100);
+        // get the current schedule
+        let items = this.applicationView.state.scheduleItems;
+        // find the item matching the edited time
+        let foundItem = items.find(obj => obj.time === time);
+        logger.log("Saving time " + foundItem.time + " details to db");
     }
 
     setItemId(item,returnObj) {
@@ -107,7 +114,7 @@ export default class Controller {
         logger.log("Saving item - " + item,2);
         // construction the mutation call to GraphQL
         let mutation = saveScheduleItemMutationPRE;
-        if (item._id !== null) {
+        if (item._id === null) {
             mutation += "_id:" + item._id + "\n";
         }
         mutation += 'details:"' + item.details + '"\n';

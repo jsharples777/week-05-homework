@@ -41,8 +41,17 @@ var Controller = /*#__PURE__*/function () {
   };
 
   _proto.handleItemSave = function handleItemSave(event) {
-    var value = $(event.target).val();
-    logger.log("Handling event " + event.type + " from " + event.target + " with value " + value, 100);
+    event.preventDefault();
+    var target = $(event.target);
+    var time = parseInt(target.attr("time"));
+    logger.log("Handling event " + event.type + " from " + event.target + " with time " + time, 100); // get the current schedule
+
+    var items = this.applicationView.state.scheduleItems; // find the item matching the edited time
+
+    var foundItem = items.find(function (obj) {
+      return obj.time === time;
+    });
+    logger.log("Saving time " + foundItem.time + " details to db");
   };
 
   _proto.setItemId = function setItemId(item, returnObj) {
@@ -166,7 +175,7 @@ var Controller = /*#__PURE__*/function () {
 
               mutation = saveScheduleItemMutationPRE;
 
-              if (item._id !== null) {
+              if (item._id === null) {
                 mutation += "_id:" + item._id + "\n";
               }
 

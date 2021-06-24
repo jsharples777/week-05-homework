@@ -43,9 +43,11 @@ export default function ScheduleItem(props) {
   })))), /*#__PURE__*/React.createElement("div", {
     className: "col-lg-2 col-md-2 col-sm-12 align-middle p-3"
   }, /*#__PURE__*/React.createElement("button", {
+    time: item.time,
     className: "btn btn-primary",
     onClick: saveHandler
   }, /*#__PURE__*/React.createElement("i", {
+    time: item.time,
     className: "fa fa-save align-middle text-center"
   }))));
 }

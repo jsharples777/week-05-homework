@@ -42,8 +42,8 @@ export default function ScheduleItem (props) {
                 </form>
             </div>
             <div className="col-lg-2 col-md-2 col-sm-12 align-middle p-3">
-                <button className={"btn btn-primary"} onClick={saveHandler}>
-                    <i className="fa fa-save align-middle text-center"></i>
+                <button time={item.time} className={"btn btn-primary"} onClick={saveHandler}>
+                    <i time={item.time} className="fa fa-save align-middle text-center"></i>
                 </button>
 
             </div>
