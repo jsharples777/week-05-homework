@@ -30,7 +30,7 @@ export default function ScheduleItem (props) {
 
 
     return (
-        <div className="row" time={item.time} _id={item._id}>
+        <div className="row p-1" time={item.time} _id={item._id}>
             <div className="col-lg-2 col-md-2 col-sm-12 text-right text-top align-middle pt-2 border-top border-dark">
               <span>{display}</span>
             </div>

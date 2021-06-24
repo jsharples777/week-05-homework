@@ -59,6 +59,6 @@ var element = /*#__PURE__*/React.createElement(ScheduleList, {
   className: "container-fluid"
 }); // setup the diplay for todays date
 
-var today = moment().format("DD/MM/YYYY");
+var today = moment().format("dddd, MMMM Do YYYY");
 $("#currentDay").text(today);
 ReactDOM.render(element, document.getElementById("content"));

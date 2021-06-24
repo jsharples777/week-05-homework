@@ -1,6 +1,6 @@
 export class SimpleDebug {
     constructor() {
-        this.debugOn = true;
+        this.debugOn = false;
         this.debugDepth = 100;
     }
 

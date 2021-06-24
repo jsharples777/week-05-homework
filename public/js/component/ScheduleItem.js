@@ -26,7 +26,7 @@ export default function ScheduleItem(props) {
 
   textDisplayClasses += backgroundDisplayClass;
   return /*#__PURE__*/React.createElement("div", {
-    className: "row",
+    className: "row p-1",
     time: item.time,
     _id: item._id
   }, /*#__PURE__*/React.createElement("div", {

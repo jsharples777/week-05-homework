@@ -41,7 +41,7 @@ class ScheduleList extends React.Component {
 const element = <ScheduleList className={"container-fluid"}/>
 
 // setup the diplay for todays date
-let today = moment().format("DD/MM/YYYY");
+let today = moment().format("dddd, MMMM Do YYYY");
 $("#currentDay").text(today);
 
 ReactDOM.render(element,document.getElementById("content"));
