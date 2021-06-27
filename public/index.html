@@ -4,10 +4,16 @@
     <meta charset="UTF-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+
+<!--        <link-->
+<!--                href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"-->
+<!--                rel="stylesheet"-->
+<!--        />-->
+
     <link
-            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            rel="stylesheet"
-    />
+        href="./css/materialize.css"
+        rel="stylesheet"
+        />
     <link
             crossorigin="anonymous"
             href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
@@ -24,11 +30,24 @@
 </head>
 
 <body>
-<header class="jumbotron">
-    <h1 class="display-3">Work Day Scheduler</h1>
-    <p class="lead">A simple calendar app for scheduling your work day</p>
-    <p class="lead" id="currentDay"></p>
-</header>
+<nav class="nav-extended  blue">
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo center">Work Day Scheduler</a>
+    </div>
+
+</nav>
+<div class="container blue lighten-2">
+    <div class="row">
+        <div class="col l12 m12 s12 ">
+            <span class="flow-text center-align">A simple calendar app for scheduling your work day</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col l12 m12 s12">
+            <span id="currentDay" class="flow-text  center-align"></span>
+        </div>
+    </div>
+</div>
 <div class="container" id="content">
     <!-- Timeblocks go here -->
 </div>
@@ -36,12 +55,13 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-<!--<script src="https://unpkg.com/react@16/umd/react.development.js"></script>-->
-<!--<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>-->
-<script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<!--<script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>-->
+<!--<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>-->
 <script src="https://unpkg.com/@babel/polyfill@7/dist/polyfill.min.js"></script>
 <script src="https://use.fontawesome.com/cc2c9731e5.js"></script>
+<script src="./js/materialize.js"></script>
 <script src="./js/App.js" type="module"></script>
 </body>
 </html>
