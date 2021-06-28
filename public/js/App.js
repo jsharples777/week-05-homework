@@ -56,7 +56,7 @@ var ScheduleList = /*#__PURE__*/function (_React$Component) {
 }(React.Component);
 
 var element = /*#__PURE__*/React.createElement(ScheduleList, {
-  className: "container-fluid"
+  className: "container mx-auto"
 }); // setup the diplay for todays date
 
 var today = moment().format("dddd, MMMM Do YYYY");

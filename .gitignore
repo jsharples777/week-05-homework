@@ -1,3 +1,7 @@
 /node_modules/
 /.idea/
 /week-05-homework.iml
+/dist/
+/webpack.config.js
+/index.html
+/public/main.js
